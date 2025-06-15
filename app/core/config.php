@@ -12,23 +12,23 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
     define("DBPORT", "3306");
 
 } else {
-    // Railway deployment (menggunakan koneksi TCP dari MYSQL_PUBLIC_URL)
+    // Railway deployment - GUNAKAN koneksi internal
     define("ROOT", "https://" . $_SERVER['HTTP_HOST']);
 
     define("DBDRIVER", "mysql");
-    define("DBHOST", "interchange.proxy.rlwy.net");
-    define("DBUSER", "root");
-    define("DBPASS", "zLnTKnGcWGZNosePKknHFagQrCQSuNsu");
-    define("DBNAME", "railway");
-    define("DBPORT", "51580");
+    define("DBHOST", getenv("MYSQLHOST"));         // mysql.railway.internal
+    define("DBUSER", getenv("MYSQLUSER"));         // root
+    define("DBPASS", getenv("MYSQLPASSWORD"));     // zLnTKnGcWGZNosePKknHFagQrCQSuNsu
+    define("DBNAME", getenv("MYSQLDATABASE"));     // railway
+    define("DBPORT", getenv("MYSQLPORT"));         // 3306
 }
 
-// Koneksi database menggunakan PDO
+// PDO connection
 try {
     $dsn = DBDRIVER . ":host=" . DBHOST . ";port=" . DBPORT . ";dbname=" . DBNAME;
     $pdo = new PDO($dsn, DBUSER, DBPASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connected successfully!"; // aktifkan jika ingin lihat status koneksi
+    // echo "Connected successfully!";
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
