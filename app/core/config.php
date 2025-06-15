@@ -16,9 +16,10 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
     define("ROOT", "https://" . $_SERVER['HTTP_HOST']); // gunakan domain Railway otomatis
 
     define("DBDRIVER", "mysql");
-    define("DBHOST", getenv("DBHOST"));
-    define("DBUSER", getenv("DBUSER"));
-    define("DBPASS", getenv("DBPASS"));
-    define("DBNAME", getenv("DBNAME"));
-    define("DBPORT", getenv("DBPORT"));
+    define("DBHOST", getenv("MYSQLHOST"));
+	define("DBUSER", getenv("MYSQLUSER"));
+	define("DBPASS", getenv("MYSQLPASSWORD"));
+	define("DBNAME", getenv("MYSQLDATABASE"));
+	define("DBPORT", getenv("MYSQLPORT"));
+
 }
