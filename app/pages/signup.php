@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <section class="content">
     <div class="login-holder" style="max-width: 500px; margin: auto;">
-        <h2>Daftar Akun</h2>
+        <h2>Create your account!</h2>
 
         <?php if (message()): ?>
             <div class="alert"><?= message('', true) ?></div>
@@ -83,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <small class="error"><?= $errors['password'] ?></small>
             <?php endif; ?>
 
-            <input class="form-control my-1" type="password" name="retype_password" placeholder="Ulangi Password">
+            <input class="form-control my-1" type="password" name="retype_password" placeholder="Confirm Password">
 
-            <button class="btn bg-orange my-1">Daftar</button>
+            <button class="btn bg-orange my-1">Sign Up</button>
 
             <p style="text-align:center; margin-top:10px;">
                 Already have an account? <a href="<?= ROOT ?>/login">Login</a>

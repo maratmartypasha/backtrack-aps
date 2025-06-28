@@ -47,7 +47,7 @@
 						<a href="#">Hi, <?=user('username')?></a>
 						<div class="dropdown-list">
 							<div class="nav-item"><a href="<?=ROOT?>/admin/users/edit/<?=user('id')?>">Profile</a></div>
-							<div class="nav-item"><a href="<?=ROOT?>/admin">Admin</a></div>
+							<div class="nav-item"><a href="<?=ROOT?>/admin">Dashboard</a></div>
 							<div class="nav-item"><a href="<?=ROOT?>/logout">Logout</a></div>
 						</div>
 					</div>

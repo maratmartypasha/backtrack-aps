@@ -1,37 +1,41 @@
 <?php 
 
-if(!is_admin())
-{
-	message("only admins can access the admin page");
+if (!logged_in()) {
+	message("You must be logged in first");
 	redirect('login');
 }
 
-	$section 	= $URL[1] ?? "dashboard";
-	$action 	= $URL[2] ?? null;
-	$id 		= $URL[3] ?? null;
+if (!is_admin()) {
+	// Jika bukan admin, arahkan ke dashboard user
+	redirect('user');
+}
 
-	switch ($section) {
-		case 'dashboard':
-			require page('admin/dashboard');
-			break;
+$section 	= $URL[1] ?? "dashboard";
+$action 	= $URL[2] ?? null;
+$id 		= $URL[3] ?? null;
 
-		case 'users':
-			require page('admin/users');
-			break;
+switch ($section) {
+	case 'dashboard':
+		require page('admin/dashboard');
+		break;
 
-		case 'categories':
-			require page('admin/categories');
-			break;
+	case 'users':
+		require page('admin/users');
+		break;
 
-		case 'artists':
-			require page('admin/artists');
-			break;
+	case 'categories':
+		require page('admin/categories');
+		break;
 
-		case 'songs':
-			require page('admin/songs');
-			break;
-		
-		default:
-			require page('admin/404');
-			break;
-	}
+	case 'artists':
+		require page('admin/artists');
+		break;
+
+	case 'songs':
+		require page('admin/songs');
+		break;
+	
+	default:
+		require page('admin/404');
+		break;
+}

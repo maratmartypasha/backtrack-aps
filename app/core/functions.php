@@ -194,3 +194,14 @@ function get_artist($id)
 
 	return "Unknown";
 }
+
+function get_youtube_id($url) {
+    preg_match("/(?:youtube\.com\/.*v=|youtu\.be\/)([^&\n?#]+)/", $url, $matches);
+    return $matches[1] ?? null;
+}
+
+function last_insert_id()
+{
+	global $DB;
+	return $DB->lastInsertId();
+}

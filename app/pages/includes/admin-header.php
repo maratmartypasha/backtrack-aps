@@ -22,7 +22,7 @@
 		</div>
 		<div class="header-div">
 			<div class="main-title">
-				ADMIN AREA
+				ADMIN DASHBOARD
 				<div class="socials">
 				
 				</div>
@@ -37,7 +37,6 @@
 					<div class="nav-item dropdown">
 						<a href="#">Hi, <?=user('username')?></a>
 						<div class="dropdown-list">
-							<div class="nav-item"><a href="<?=ROOT?>/admin/users/edit/<?=user('id')?>">Profile</a></div>
 							<div class="nav-item"><a href="<?=ROOT?>">Website</a></div>
 							<div class="nav-item"><a href="<?=ROOT?>/logout">Logout</a></div>
 						</div>

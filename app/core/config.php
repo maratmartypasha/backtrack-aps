@@ -7,7 +7,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
     define("DBUSER", "root");
     define("DBPASS", "");
     define("DBNAME", "music_db");
-    define("DBPORT", "3306");
+    define("DBPORT", "3307");
 } else {
     define("ROOT", "https://" . $_SERVER['HTTP_HOST']);
     define("DBDRIVER", "mysql");
